@@ -30,7 +30,6 @@ export const UserRegister = async (req, res, next) => {
     const token = jwt.sign({ id: createdUser._id }, process.env.JWT, {
       expiresIn: "9999 years",
     });
-    console.log('jwtToken', token);
     return res.status(200).json({ token, user });
   } catch (error) {
     return next(error);
@@ -248,7 +247,6 @@ export const addWorkout = async (req, res, next) => {
       count++;
       if (line.startsWith("#")) {
         const parts = line?.split("\n").map((part) => part.trim());
-        console.log(parts);
         if (parts.length < 5) {
           return next(
             createError(400, `Workout string is missing for ${count}th workout`)
@@ -293,7 +291,6 @@ export const addWorkout = async (req, res, next) => {
 // Function to parse workout details from a line
 const parseWorkoutLine = (parts) => {
   const details = {};
-  console.log(parts);
   if (parts.length >= 5) {
     details.workoutName = parts[1].substring(1).trim();
     details.sets = parseInt(parts[2].split("sets")[0].substring(1).trim());
@@ -302,7 +299,6 @@ const parseWorkoutLine = (parts) => {
     );
     details.weight = parseFloat(parts[3].split("kg")[0].substring(1).trim());
     details.duration = parseFloat(parts[4].split("min")[0].substring(1).trim());
-    console.log(details);
     return details;
   }
   return null;

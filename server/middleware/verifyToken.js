@@ -1,9 +1,6 @@
 import jwt from "jsonwebtoken";
 import { createError } from "../error.js";
 
-console.log('MONGODB_URL:', process.env.MONGODB_URL);
-console.log('JWT:', process.env.JWT);
-
 export const verifyToken = async (req, res, next) => {
   try {
     if (!req.headers.authorization) {
@@ -15,7 +12,7 @@ export const verifyToken = async (req, res, next) => {
     if (!token) return next(createError(401, "You are not authenticated"));
 
     const decode = jwt.verify(token, process.env.JWT);
-    console.log('decode',decode)
+
     req.user = decode;
     return next();
   } catch (err) {
