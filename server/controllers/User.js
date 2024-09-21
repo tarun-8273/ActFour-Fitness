@@ -41,14 +41,13 @@ export const UserLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email: email });
-    // Check if user exists
+    const user = await User.findOne({ email: email }).maxTimeMS(15000);
+    
     if (!user) {
       return next(createError(404, "User not found"));
     }
-    console.log(user);
-    // Check if password is correct
-    const isPasswordCorrect = await bcrypt.compareSync(password, user.password);
+
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
       return next(createError(403, "Incorrect password"));
     }
@@ -59,7 +58,13 @@ export const UserLogin = async (req, res, next) => {
 
     return res.status(200).json({ token, user });
   } catch (error) {
-    return next(error);
+    console.error("Login error:", error);
+    
+    if (error.name === "MongooseError" && error.message.includes("buffering timed out")) {
+      return next(createError(500, "Database connection timed out. Please try again later."));
+    }
+
+    return next(createError(500, "An unexpected error occurred. Please try again."));
   }
 };
 
