@@ -61,8 +61,8 @@ const SignIn = () => {
   return (
     <Container>
       <div>
-        <Title>Welcome to Fittrack 👋</Title>
-        <Span>Please login with your details here</Span>
+        <Title style={{color:'red', fontWeight:'bolder'}}>Welcome to ActFour Fitness 💪</Title>
+        <Span style={{color:'black', fontWeight:'bold'}}>Please login with your details here</Span>
       </div>
       <div
         style={{

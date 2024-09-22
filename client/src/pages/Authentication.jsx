@@ -9,7 +9,12 @@ const Container = styled.div`
   flex: 1;
   height: 100%;
   display: flex;
-  background: ${({ theme }) => theme.bg};
+  background: linear-gradient(
+    45deg,
+    ${({ theme }) => theme.orange} 0%,
+    ${({ theme }) => theme.white} 50%,
+    ${({ theme }) => theme.green} 100%
+  );
   @media (max-width: 700px) {
     flex-direction: column;
   }
@@ -68,7 +73,7 @@ const Authentication = () => {
     <Container>
       <Left>
         <Logo src={LogoImage} />
-        <Image src={AuthImage} />
+        {/* <Image src={AuthImage} /> */}
       </Left>
       <Right>
         {!login ? (
