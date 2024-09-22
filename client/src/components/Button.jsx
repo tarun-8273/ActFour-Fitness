@@ -27,7 +27,7 @@ const Button = styled.div`
 border: 1px solid ${({ theme }) => theme.secondary};
   `
       : `
-  background: ${theme.primary};
+  background: ${theme.red};
 `}
 
   ${({ isDisabled }) =>

@@ -15,6 +15,12 @@ const Container = styled.div`
   justify-content: center;
   padding: 22px 0px;
   overflow-y: scroll;
+  background: linear-gradient(
+    45deg,
+    ${({ theme }) => theme.orange} 0%,
+    ${({ theme }) => theme.white} 50%,
+    ${({ theme }) => theme.green} 100%
+  );
 `;
 const Wrapper = styled.div`
   flex: 1;
@@ -68,8 +74,8 @@ const Section = styled.div`
 `;
 const SecTitle = styled.div`
   font-size: 22px;
-  color: ${({ theme }) => theme.text_primary};
-  font-weight: 500;
+  color: ${({ theme }) => theme.black};
+  font-weight: bolder;
 `;
 
 const Workouts = () => {

@@ -15,6 +15,12 @@ const Container = styled.div`
   justify-content: center;
   padding: 22px 0px;
   overflow-y: scroll;
+  background: linear-gradient(
+    45deg,
+    ${({ theme }) => theme.orange} 0%,
+    ${({ theme }) => theme.white} 50%,
+    ${({ theme }) => theme.green} 100%
+  );
 `;
 const Wrapper = styled.div`
   flex: 1;
@@ -30,7 +36,7 @@ const Title = styled.div`
   padding: 0px 16px;
   font-size: 22px;
   color: ${({ theme }) => theme.text_primary};
-  font-weight: 500;
+  font-weight: bolder;
 `;
 const FlexWrap = styled.div`
   display: flex;

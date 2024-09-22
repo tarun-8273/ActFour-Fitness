@@ -20,7 +20,7 @@ const Card = styled.div`
 const Title = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.red};
   @media (max-width: 600px) {
     font-size: 14px;
   }

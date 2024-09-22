@@ -61,7 +61,7 @@ const Text = styled.div`
   }
 `;
 const TextButton = styled.span`
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.red};
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;

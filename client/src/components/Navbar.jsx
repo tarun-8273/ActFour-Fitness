@@ -8,7 +8,15 @@ import { useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/userSlice";
 
 const Nav = styled.div`
-  background-color: ${({ theme }) => theme.bg};
+  background: linear-gradient(
+    to right,
+    #FF9933 0%,
+    #FF9933 33%,
+    #FFFFFF 33%,
+    #FFFFFF 66%,
+    #138808 66%,
+    #138808 100%
+  );
   height: 80px;
   display: flex;
   align-items: center;
@@ -75,11 +83,11 @@ const Navlink = styled(NavLink)`
   transition: all 1s slide-in;
   text-decoration: none;
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.red};
   }
   &.active {
-    color: ${({ theme }) => theme.primary};
-    border-bottom: 1.8px solid ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.red};
+    border-bottom: 1.8px solid ${({ theme }) => theme.red};
   }
 `;
 
@@ -95,7 +103,7 @@ const UserContainer = styled.div`
 `;
 const TextButton = styled.div`
   text-align: end;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.white};
   cursor: pointer;
   font-size: 16px;
   transition: all 0.3s ease;
@@ -138,23 +146,17 @@ const Navbar = ({ currentUser }) => {
         </Mobileicon>
         <NavLogo to="/">
           <Logo src={LogoImg} />
-          Fittrack
+          ActFour Fitness
         </NavLogo>
 
         <MobileMenu isOpen={isOpen}>
           <Navlink to="/">Dashboard</Navlink>
           <Navlink to="/workouts">Workouts</Navlink>
-          <Navlink to="/tutorials">Tutorials</Navlink>
-          <Navlink to="/blogs">Blogs</Navlink>
-          <Navlink to="/contact">Contact</Navlink>
         </MobileMenu>
 
         <NavItems>
           <Navlink to="/">Dashboard</Navlink>
           <Navlink to="/workouts">Workouts</Navlink>
-          <Navlink to="/tutorials">Tutorials</Navlink>
-          <Navlink to="/blogs">Blogs</Navlink>
-          <Navlink to="/contact">Contact</Navlink>
         </NavItems>
 
         <UserContainer>

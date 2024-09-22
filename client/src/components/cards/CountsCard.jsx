@@ -82,15 +82,15 @@ const Desc = styled.div`
 
 const CountsCard = ({ item, data }) => {
   return (
-    <Card>
+    <Card style={{background:'black'}}>
       <Left>
-        <Title>{item.name}</Title>
+        <Title style={{color:'orange'}}>{item.name}</Title>
         <Value>
-          {data && data[item.key].toFixed(2)}
-          <Unit>{item.unit}</Unit>
+          <span style={{color:'white'}}>{data && data[item.key].toFixed(2)}</span>
+          <Unit style={{ color: "white" }}>{item.unit}</Unit>
           <Span positive>(+10%)</Span>
         </Value>
-        <Desc>{item.desc}</Desc>
+        <Desc style={{color:'white'}}>{item.desc}</Desc>
       </Left>
       <Icon color={item.color} bg={item.lightColor}>
         {item.icon}

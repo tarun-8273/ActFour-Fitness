@@ -20,20 +20,20 @@ const Card = styled.div`
 const Category = styled.div`
   width: fit-content;
   font-size: 14px;
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.white};
   font-weight: 500;
-  background: ${({ theme }) => theme.primary + 20};
+  background: ${({ theme }) => theme.red};
   padding: 4px 10px;
   border-radius: 8px;
 `;
 const Name = styled.div`
   font-size: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.orange};
   font-weight: 600;
 `;
 const Sets = styled.div`
   font-size: 15px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.white};
   font-weight: 500;
   display: flex;
   gap: 6px;
@@ -44,7 +44,7 @@ const Flex = styled.div`
 `;
 const Details = styled.div`
   font-size: 15px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.green};
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@ const Details = styled.div`
 
 const WorkoutCard = ({ workout }) => {
   return (
-    <Card>
+    <Card style={{background:'black'}}>
       <Category>#{workout?.category}</Category>
       <Name>{workout?.workoutName}</Name>
       <Sets>
